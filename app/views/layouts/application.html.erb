@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BlogApp</title>
+  <title>Blog of Interesting Things</title>
+	<%= favicon_link_tag %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= jquery_include_tag :google %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+	<meta charset="UTF-8">
 </head>
 <body>
 
-<%= yield %>
+	<%= render "layouts/header" %>
+
+	<div id="container">
+		<%= yield %>
+	</div>
 
 </body>
 </html>

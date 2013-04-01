@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 f54c941e711f104a7606b8fa6bd145f4626e334d Brian <vagrant@precise64.(none)> 1364694992 +0000	commit (initial): first commit
+f54c941e711f104a7606b8fa6bd145f4626e334d 36386ddb20ccc9efa764822157e90912dcf3026a Brian <brian.ortega@gmail.com> 1364695041 +0000	commit (amend): first commit
+36386ddb20ccc9efa764822157e90912dcf3026a c50c236157a004bfd5d5e7213da0a32551ed2140 Brian <brian.ortega@gmail.com> 1364704018 +0000	commit: added basic layout/css and devise
