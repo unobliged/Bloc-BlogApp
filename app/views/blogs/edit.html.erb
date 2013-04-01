@@ -1,0 +1,7 @@
+<h2>Edit Blog Title:</h2>
+
+<%= form_for @blog, :url => { :action => "update" } do |f| %>
+	<label>Enter Blog Title:</label>
+	<%= f.text_field :title %>
+	<%= submit_tag "Submit" %>	
+<% end %>

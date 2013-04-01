@@ -14,7 +14,7 @@
 	<%= render "layouts/header" %>
 
 	<div id="container">
-		<%= yield %>
+		<%= content_for?(:content) ? yield(:content) : yield %>
 	</div>
 
 </body>
