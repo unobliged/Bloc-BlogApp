@@ -11,4 +11,8 @@
 
 class Blog < ActiveRecord::Base
   attr_accessible :title
+
+	has_many :posts
+	has_many :comments
+	belongs_to :user
 end
