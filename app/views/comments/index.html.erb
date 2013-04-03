@@ -1,2 +1,14 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<h2>List of all blog post comments</h2>
+<% @comments.each do |comment| %>
+	<ul>
+		<li><%= link_to comment.content, comment %>
+			<p>Comment made in post <%= link_to comment.post.title, comment.post %> in blog <%= link_to comment.blog.title, comment.blog %></p>
+			<p>
+			<%= link_to "show", comment %> | 
+			<%= link_to "edit", edit_comment_path(comment) %>	| 
+			<%= link_to "delete", comment, method: :delete, 
+			data: { confirm: "Delete this comment?" } %>
+			</p>
+		</li>
+	</ul>
+<% end %>

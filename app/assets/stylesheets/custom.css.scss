@@ -18,7 +18,7 @@ a:hover {
 }
 
 header {
-	font-size: 20px;
+	font-size: 16px;
 	border: 2px solid;
 	border-radius: 20px;
 	max-width: 750px;
@@ -99,11 +99,23 @@ header input {
 }
 
 #center-div p {
-
+	margin: 5px 0;
 }
 
 #center-div ul {
 	padding-left: 20px;
+}
+
+#center-div label {
+	display: block;
+	padding: 5px 0;
+}
+
+#center-div input[type=text],
+#center-div input[type=submit] {
+	display: block;
+	padding: 5px;
+	margin: 5px 0;
 }
 
 .devise>div div, .devise a {
@@ -135,6 +147,20 @@ header input {
 
 .blog-row img {
 	
+}
+
+.blog-post {
+	border: 2px solid;
+	border-radius: 20px;
+	padding: 20px;
+	margin: 20px 0;
+}
+
+.comment {
+	border: 2px solid;
+	border-radius: 20px;
+	padding: 20px;
+	margin: 20px 0;
 }
 
 #feeds {

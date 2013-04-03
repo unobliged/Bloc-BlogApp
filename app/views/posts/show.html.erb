@@ -1,2 +1,6 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h2>Post Title: <%= @post.title %></h2>
+<p><%= @post.content %></p>
+<p><%= link_to "Back to blog", @post.blog %>
+<h3>Comments:</h3>
+<p><%= link_to "Create new comment", new_post_comment_path(@post) %>
+<%= render 'posts/comments' %>

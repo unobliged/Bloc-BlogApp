@@ -1,11 +1,14 @@
 <h2>List of all blogs</h2>
 <% @blogs.each do |blog| %>
 	<ul>
-		<li><%= blog.title %>: 
+		<li><%= link_to blog.title, blog %>
+		<p>Blog owned by <%= blog.user.email %></p>
+		<p>
 			<%= link_to "show", blog %> | 
 			<%= link_to "edit", edit_blog_path(blog) %>	| 
 			<%= link_to "delete", blog, method: :delete, 
 			data: { confirm: "Delete this blog?" } %>
+		</p>
 		</li>
 	</ul>
 <% end %>

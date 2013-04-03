@@ -1,2 +1,7 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<h2>Make a new comment in <%= link_to @post.title, @post %>:</h2>
+
+<%= form_for [@post, @comment] do |f| %>
+	<label>Enter Comment Content:</label>
+	<%= f.text_area :content, :size => "50x5" %>
+	<%= submit_tag "Submit" %>	
+<% end %>

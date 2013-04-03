@@ -1,0 +1,11 @@
+<% @post.comments.each do |comment| %>
+	<div class="comment">
+	<p><%= comment.content %></p>
+	<p>Comment by <%= link_to @post.user.email, @post.user %></p>
+	<p><i>Last updated: <%= comment.updated_at.localtime %></i></p>
+	<p><%= link_to "Edit this comment", edit_comment_path(comment) %>
+		<%= link_to "Delete this comment", comment, method: :delete, 
+			data: { confirm: "Delete this comment?" } %>
+	</p>
+	</div>
+<% end %>
