@@ -3,12 +3,6 @@
 	<ul>
 		<li><%= link_to post.title, post %>
 			<p>Post made in blog <%= link_to post.blog.title, post.blog %> owned by <%= post.blog.user.email %></p>
-			<p>
-			<%= link_to "show", post %> | 
-			<%= link_to "edit", edit_post_path(post) %>	| 
-			<%= link_to "delete", post, method: :delete, 
-			data: { confirm: "Delete this post?" } %>
-			</p>
 		</li>
 	</ul>
 <% end %>

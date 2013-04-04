@@ -149,14 +149,7 @@ header input {
 	
 }
 
-.blog-post {
-	border: 2px solid;
-	border-radius: 20px;
-	padding: 20px;
-	margin: 20px 0;
-}
-
-.comment {
+.blog-post, .comment, .user-blogs {
 	border: 2px solid;
 	border-radius: 20px;
 	padding: 20px;

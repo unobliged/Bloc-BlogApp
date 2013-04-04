@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-
+	before_filter :authenticate_user!, :except => [:show, :index]
   def index
 		@blogs = Blog.all
   end
@@ -9,33 +9,33 @@ class BlogsController < ApplicationController
   end
 
 	def new
-		@blog = Blog.new
+		@blog = current_user.blogs.new
 	end	
 
   def create
-		@blog = Blog.new(params[:blog])
+		@blog = current_user.blogs.new(params[:blog])
 		if @blog.save
-			redirect_to @blog, notice: "Blog successfully created."
+			redirect_to current_user, notice: "Blog successfully created."
 		else
 			render 'new'
 		end
   end
 
   def edit
-		@blog = Blog.find(params[:id])
+		@blog = current_user.blogs.find(params[:id])
   end
 
   def update
-		@blog = Blog.find(params[:id])
+		@blog = current_user.blogs.find(params[:id])
 		if @blog.update_attributes(params[:blog])
-			redirect_to @blog, notice: "Blog successfully updated."
+			redirect_to current_user, notice: "Blog successfully updated."
 		else
 			render 'edit'
 		end
   end
 
   def destroy
-		@blog = Blog.find(params[:id])
+		@blog = current_user.blogs.find(params[:id])
 		@blog.destroy	
 		redirect_to blogs_path, notice: "Blog successfully destroyed."
   end

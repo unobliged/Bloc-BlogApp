@@ -2,13 +2,7 @@
 <% @blogs.each do |blog| %>
 	<ul>
 		<li><%= link_to blog.title, blog %>
-		<p>Blog owned by <%= blog.user.email %></p>
-		<p>
-			<%= link_to "show", blog %> | 
-			<%= link_to "edit", edit_blog_path(blog) %>	| 
-			<%= link_to "delete", blog, method: :delete, 
-			data: { confirm: "Delete this blog?" } %>
-		</p>
+		<p>Blog owned by <%= User.find(blog.user_id).username %></p>
 		</li>
 	</ul>
 <% end %>

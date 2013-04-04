@@ -1,3 +1,8 @@
 <h2>Blog Title: <%= @blog.title %></h2>
-<p><%= link_to "Create new post", new_blog_post_path(@blog) %>
+<% if current_user == @blog.user %>
+	<p><%= link_to "Edit Blog", edit_blog_path(@blog) %> 
+	<%= link_to "Delete Blog", @blog, method: :delete, data: { confirm: "Delete this blog?" } %>
+	</p>
+	<p><%= link_to "Create new post", new_blog_post_path(@blog) %>
+<% end %>
 <%= render 'blogs/posts' %>

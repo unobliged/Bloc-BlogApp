@@ -1,13 +1,19 @@
 BlogApp::Application.routes.draw do
 
 	devise_for :users
-	resources :users
+
+	resources :users do
+		resources :blogs
+	end
+
 	resources :blogs do 
 		resources :posts
 	end
+
 	resources :posts do
 		resources :comments
 	end
+
 	resources :comments
 
 	root :to => 'static_pages#home'

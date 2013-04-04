@@ -1,6 +1,12 @@
 <header>
 	<nav>
-		<h1><%= link_to "Blogging App", root_path %></h1>
+		<h1>
+			<% if user_signed_in? %>
+				<%= link_to "Blogging App", current_user %></h1>
+			<% else %>	
+				<%= link_to "Blogging App", root_path %></h1>
+			<% end %>
+		</h1>
 		<ul>					
 			<li><%= link_to "Blogs", blogs_path %></li>
 			<li><%= link_to "About", about_path %></li>
