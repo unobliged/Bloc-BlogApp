@@ -17,4 +17,6 @@ class Comment < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :post
 	belongs_to :blog
+
+	default_scope order('created_at desc')
 end

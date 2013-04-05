@@ -17,4 +17,6 @@ class Post < ActiveRecord::Base
 	has_many :comments
 	belongs_to :user
 	belongs_to :blog
+
+	scope :recent, order('created_at desc').limit(10)
 end
