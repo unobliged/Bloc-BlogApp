@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	before_filter :authenticate_user!, :except => [:show, :index]
+	#before_filter :authenticate_user!, :except => [:show, :index, :new, :create]
   def index
 		@comments = Comment.all
   end
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.new(params[:comment])
 		@comment.blog_id = @post.blog_id
-		@comment.user_id = current_user.id
+		@comment.user_id = current_or_guest_user.id
 		if @comment.save
 			redirect_to @comment.post, notice: "Comment successfully created."
 		else
@@ -26,11 +26,11 @@ class CommentsController < ApplicationController
   end
 
   def edit
-		@comment = current_user.comments.find(params[:id])
+		@comment = current_or_guest_user.comments.find(params[:id])
   end
 
   def update
-		@comment = current_user.comments.find(params[:id])
+		@comment = current_or_guest_user.comments.find(params[:id])
 		if @comment.update_attributes(params[:comment])
 			redirect_to @comment, notice: "Comment successfully updated."
 		else
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-		@comment = current_user.comments.find(params[:id])
+		@comment = current_or_guest_user.comments.find(params[:id])
 		@comment.destroy	
 		redirect_to @comment.post, notice: "Comment successfully destroyed."
   end
