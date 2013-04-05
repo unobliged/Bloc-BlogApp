@@ -1,3 +1,14 @@
+@mixin ib-pm($p: 5px, $m: 5px) {
+	display: inline-block;
+	padding: $p;
+	margin: $m;
+}
+
+@mixin rb($b: 2px solid, $r: 20px) {
+	border: $b;
+	border-radius: $r;
+}
+
 * {
 	margin:0;
 	padding:0;	
@@ -11,32 +22,53 @@ html, body {
 
 a {	
 	color: #000;
+
+	&:hover {
+		color: #4099ff;
+	}
 }
 
-a:hover {
-	color: #4099ff;
-}
 
 header {
 	font-size: 16px;
-	border: 2px solid;
-	border-radius: 20px;
+	@include rb;
 	max-width: 750px;
 	min-width: 350px;
 	margin: 20px 20%;
 	text-align: center;
 	background-color: #5F9EA0;
 	box-shadow: 0px 0px 5px #005353;
-}
 
-header nav {
-	display: inline-block;	
-}
+	nav {
+		display: inline-block;	
+	}
 
-header h1 {
-	display: inline-block;
-	padding: 5px;
-	margin: 5px;	
+	h1 {
+		@include ib-pm;
+	}
+	
+	ul {
+		@include ib-pm;
+	}
+	
+	li {
+		display: inline-block;	
+		margin-right: 10px;
+	}
+	
+	form {
+		@include ib-pm;
+		vertical-align: 20%;
+	}
+	
+	input {
+		width: 200px;
+		padding: 5px 5px 5px 25px;
+		@include rb;
+		color: 	#545454;
+		background: #DCDCDC url('glyphicons_027_search.png') no-repeat;
+		box-shadow: 0px 0px 5px #333;
+	}
 }
 
 header h1>a {
@@ -45,34 +77,6 @@ header h1>a {
 
 header h1>a:hover {
 	color: #000;
-}
-
-header ul {
-	display: inline-block;
-	padding: 5px;
-	margin: 5px;	
-}
-
-header li {
-	display: inline-block;	
-	margin-right: 10px;
-}
-
-header form {
-	display: inline-block;	
-	padding: 5px;
-	margin: 5px;
-	vertical-align: 20%;
-}
-
-header input {
-	width: 200px;
-	padding: 5px 5px 5px 25px;
-	border: 2px solid;
-	border-radius: 20px;
-	color: 	#545454;
-	background: #DCDCDC url('glyphicons_027_search.png') no-repeat;
-	box-shadow: 0px 0px 5px #333;
 }
 
 .notice, .alert {
@@ -87,35 +91,34 @@ header input {
 }
 
 #center-div {
-	border: 2px solid;
-	border-radius: 20px;
+	@include rb;
 	padding: 20px;
 	margin-top: 10px;
 	background-color: #fff;
-}
 
-#center-div h2 {
-	margin-bottom: 10px;
-}
-
-#center-div p {
-	margin: 5px 0;
-}
-
-#center-div ul {
-	padding-left: 20px;
-}
-
-#center-div label {
-	display: block;
-	padding: 5px 0;
-}
-
-#center-div input[type=text],
-#center-div input[type=submit] {
-	display: block;
-	padding: 5px;
-	margin: 5px 0;
+	h2 {
+		margin-bottom: 10px;
+	}
+	
+	p {
+		margin: 5px 0;
+	}
+	
+	ul {
+		padding-left: 20px;
+	}
+	
+	label {
+		display: block;
+		padding: 5px 0;
+	}
+	
+	input[type=text],
+	input[type=submit] {
+		display: block;
+		padding: 5px;
+		margin: 5px 0;
+	}
 }
 
 .devise>div div, .devise a {
@@ -126,18 +129,17 @@ header input {
 }
 
 #blogs {
-	border: 2px solid;
-	border-radius: 20px;
+	@include rb;
 	padding-top: 10px;
 	margin-top: 10px;
 	float: left;
 	margin-right: 40px;
 	background-color: #fff;
-}
 
-#blogs h2 {
-	padding-left: 20px;
-	margin-bottom: 10px;
+	h2 {
+		padding-left: 20px;
+		margin-bottom: 10px;
+	}
 }
 
 .blog-row {
@@ -145,39 +147,28 @@ header input {
 	min-width: 308px;
 }
 
-.blog-row img {
-	
-}
-
 .blog-post, .comment, .user-blogs {
-	border: 2px solid;
-	border-radius: 20px;
+	@include rb;
 	padding: 20px;
 	margin: 20px 0;
 }
 
 #feeds {
-	border: 2px solid;
-	border-radius: 20px;
+	@include rb;
 	padding: 10px;
 	margin-top: 10px;
 	vertical-align: top;
 	width: 330px;
 	float: left;
 	background-color: #fff;	
-}
 
-#feeds h2 {
-	padding-left: 20px;
-}
-
-#feeds ul {
-	list-style-type: none;
-	margin-top: 10px;
-	padding-left: 20px;
-}
-
-#feeds li {
+	h2 {
+		padding-left: 20px;
+	}
 	
+	ul {
+		list-style-type: none;
+		margin-top: 10px;
+		padding-left: 20px;
+	}
 }
-
