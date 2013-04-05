@@ -39,7 +39,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-		@comment = current_or_guest_user.comments.find(params[:id])
+		if current_or_guest_user.role == "mod"
+			@comment = Comment.find(params[:id])
+		else
+			@comment = current_or_guest_user.comments.find(params[:id])
+		end
 		@comment.destroy	
 		redirect_to @comment.post, notice: "Comment successfully destroyed."
   end

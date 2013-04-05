@@ -8,6 +8,7 @@ gem 'jquery-rails-cdn'
 gem 'bcrypt-ruby'
 gem 'will_paginate', '~> 3.0.0'
 gem 'devise'
+gem 'cancan'
 
 group :development, :test do
   gem 'rspec-rails'

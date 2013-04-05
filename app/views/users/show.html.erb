@@ -2,6 +2,7 @@
 <p>Username: <%= @user.username %></p>
 <% if current_or_guest_user == @user %>
 	<p>Email: <%= @user.email %></p>
+	<p>Role: <%= @user.role ? @user.role : "None" %>
 	<p><%= link_to "Edit Account", edit_user_registration_path %>
 	<h2>Blogs:</h2>
 	<p><%= link_to "Create new blog", new_user_blog_path(@user) %>
