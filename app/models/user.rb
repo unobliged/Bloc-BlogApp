@@ -19,7 +19,7 @@
 #
 
 class User < ActiveRecord::Base
-	validates_uniqueness_of :username
+  validates_uniqueness_of :username
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
   # attr_accessible :title, :body
 
-	has_many :blogs
-	has_many :posts
-	has_many :comments
+  has_many :blogs
+  has_many :posts
+  has_many :comments
 end

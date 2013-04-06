@@ -13,10 +13,10 @@
 
 class Comment < ActiveRecord::Base
   attr_accessible :blog_id, :content, :post_id, :user_id
-	
-	belongs_to :user
-	belongs_to :post
-	belongs_to :blog
+  
+  belongs_to :user
+  belongs_to :post
+  belongs_to :blog
 
-	default_scope order('created_at desc')
+  default_scope order('created_at desc')
 end

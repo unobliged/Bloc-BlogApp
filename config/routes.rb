@@ -1,23 +1,23 @@
 BlogApp::Application.routes.draw do
 
-	devise_for :users
+  devise_for :users
 
-	resources :users do
-		resources :blogs
-	end
+  resources :users do
+    resources :blogs
+  end
 
-	resources :blogs do 
-		resources :posts
-	end
+  resources :blogs do 
+    resources :posts
+  end
 
-	resources :posts do
-		resources :comments
-	end
+  resources :posts do
+    resources :comments
+  end
 
-	resources :comments
+  resources :comments
 
-	root :to => 'static_pages#home'
-	match '/about',   to: 'static_pages#about'
-	match '/contact', to: 'static_pages#contact'
+  root :to => 'static_pages#home'
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
 
 end

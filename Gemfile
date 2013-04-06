@@ -13,7 +13,7 @@ gem 'cancan'
 group :development, :test do
   gem 'rspec-rails'
   gem 'annotate'
-	gem 'faker'
+  gem 'faker'
   gem 'factory_girl_rails'
 end
 

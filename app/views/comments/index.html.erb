@@ -1,8 +1,8 @@
 <h2>List of all blog post comments</h2>
 <% @comments.each do |comment| %>
-	<ul>
-		<li><%= link_to comment.content, comment %>
-			<p>Comment made in post <%= link_to comment.post.title, comment.post %> in blog <%= link_to comment.blog.title, comment.blog %></p>
-		</li>
-	</ul>
+  <ul>
+    <li><%= link_to comment.content, comment %>
+      <p>Comment made in post <%= link_to comment.post.title, comment.post %> in blog <%= link_to comment.blog.title, comment.blog %></p>
+    </li>
+  </ul>
 <% end %>

@@ -1,9 +1,9 @@
 <h2>Edit a post:</h2>
 
 <%= form_for @post do |f| %>
-	<label>Enter Post Title:</label>
-	<%= f.text_field :title %>
-	<label>Enter Post Content:</label>
-	<%= f.text_area :content, :size => "50x5" %>
-	<%= submit_tag "Submit" %>	
+  <label>Enter Post Title:</label>
+  <%= f.text_field :title %>
+  <label>Enter Post Content:</label>
+  <%= f.text_area :content, :size => "50x5" %>
+  <%= submit_tag "Submit" %>  
 <% end %>

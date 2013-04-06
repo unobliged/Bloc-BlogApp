@@ -1,8 +1,8 @@
 <h2>List of all blogs</h2>
 <% @blogs.each do |blog| %>
-	<ul>
-		<li><%= link_to blog.title, blog %>
-		<p>Blog owned by <%= User.find(blog.user_id).username %></p>
-		</li>
-	</ul>
+  <ul>
+    <li><%= link_to blog.title, blog %>
+    <p>Blog owned by <%= User.find(blog.user_id).username %></p>
+    </li>
+  </ul>
 <% end %>

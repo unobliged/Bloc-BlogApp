@@ -2,20 +2,20 @@
 <html>
 <head>
   <title>Blog of Interesting Things</title>
-	<%= favicon_link_tag %>
+  <%= favicon_link_tag %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-	<%= jquery_include_tag :google %>
+  <%= jquery_include_tag :google %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
 </head>
 <body>
 
-	<%= render "layouts/header" %>
+  <%= render "layouts/header" %>
 
-	<div id="container">
-		<%= content_for?(:content) ? yield(:content) : yield %>
-	</div>
+  <div id="container">
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  </div>
 
 </body>
 </html>

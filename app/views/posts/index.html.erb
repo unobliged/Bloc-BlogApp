@@ -1,8 +1,8 @@
 <h2>List of all blog posts</h2>
 <% @posts.each do |post| %>
-	<ul>
-		<li><%= link_to post.title, post %>
-			<p>Post made in blog <%= link_to post.blog.title, post.blog %> owned by <%= post.blog.user.email %></p>
-		</li>
-	</ul>
+  <ul>
+    <li><%= link_to post.title, post %>
+      <p>Post made in blog <%= link_to post.blog.title, post.blog %> owned by <%= post.blog.user.email %></p>
+    </li>
+  </ul>
 <% end %>

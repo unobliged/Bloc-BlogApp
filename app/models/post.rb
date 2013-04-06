@@ -13,10 +13,10 @@
 
 class Post < ActiveRecord::Base
   attr_accessible :blog_id, :content, :title, :user_id
-	
-	has_many :comments
-	belongs_to :user
-	belongs_to :blog
+  
+  has_many :comments
+  belongs_to :user
+  belongs_to :blog
 
-	scope :recent, order('created_at desc').limit(10)
+  scope :recent, order('created_at desc').limit(10)
 end
