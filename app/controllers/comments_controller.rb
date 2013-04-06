@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  #before_filter :authenticate_user!, :except => [:show, :index, :new, :create]
+  load_and_authorize_resource
   def index
     @comments = Comment.all
   end

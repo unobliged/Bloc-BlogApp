@@ -2,7 +2,7 @@
   <nav>
     <h1>
       <% if user_signed_in? %>
-        <%= link_to "Blogging App", current_or_guest_user %></h1>
+        <%= link_to "Blogging App", current_user %></h1>
       <% else %>  
         <%= link_to "Blogging App", root_path %></h1>
       <% end %>

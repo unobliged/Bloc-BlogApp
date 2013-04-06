@@ -1,5 +1,5 @@
 <h2>Blog Title: <%= @blog.title %></h2>
-<% if current_or_guest_user == @blog.user %>
+<% if current_user == @blog.user %>
   <p><%= link_to "Edit Blog", edit_blog_path(@blog) %> 
   <%= link_to "Delete Blog", @blog, method: :delete, data: { confirm: "Delete this blog?" } %>
   </p>
