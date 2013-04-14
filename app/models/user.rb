@@ -33,4 +33,19 @@ class User < ActiveRecord::Base
   has_many :blogs
   has_many :posts
   has_many :comments
+  has_many :subscriptions, foreign_key: "user_id", dependent: :destroy
+  has_many :subscribed_blogs, through: :subscriptions, source: :blog
+
+  def subscribed?(blog)
+    subscriptions.find_by_blog_id(blog.id)
+  end
+
+  def subscribe!(blog)
+    subscriptions.create!(blog_id: blog.id)
+  end
+
+  def unsubscribe!(blog)
+    subscriptions.find_by_blog_id(blog.id).destroy
+  end
+
 end

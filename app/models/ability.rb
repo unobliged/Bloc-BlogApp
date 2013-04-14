@@ -6,7 +6,7 @@ class Ability
       can :read, :all
       can :manage, Comment
     else 
-      can :manage, [User, Blog, Post, Comment]
+      can :manage, [User, Blog, Post, Comment, Subscription]
       # using case to leave room for future roles/resources
       case user.role
       when 'admin'

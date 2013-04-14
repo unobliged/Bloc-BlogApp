@@ -15,4 +15,11 @@ class Blog < ActiveRecord::Base
   has_many :posts
   has_many :comments
   belongs_to :user
+  has_many :subscriptions, foreign_key: "blog_id", dependent: :destroy
+  has_many :subscribers, through: :subscriptions, source: :user
+
+  def subscriber?(user)
+    subscriptions.find_by_user_id(user.id)
+  end
+
 end

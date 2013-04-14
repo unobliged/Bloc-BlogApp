@@ -1,4 +1,11 @@
 <h2>Blog Title: <%= @blog.title %></h2>
+<% if user_signed_in? && current_user != @blog.user %>
+  <% if current_user.subscribed?(@blog) %>
+    <p><%= link_to "Unsubscribe", subscriptions_destroy_path(blog_id: @blog.id) %></p>
+  <% else %>
+    <p><%= link_to "Subscribe to Blog", subscriptions_create_path(blog_id: @blog.id) %></p>
+  <% end %>
+<% end %>
 <% if current_user == @blog.user %>
   <p><%= link_to "Edit Blog", edit_blog_path(@blog) %> 
   <%= link_to "Delete Blog", @blog, method: :delete, data: { confirm: "Delete this blog?" } %>

@@ -1,0 +1,13 @@
+<h2>Subscribed Blogs:</h2>
+<% @user.subscribed_blogs.each do |blog| %>
+  <div class="user-blogs">
+  <h2><%= link_to blog.title, blog %></h2>
+  <% if current_user == @user %>
+    <p><%= link_to "Edit this blog", edit_blog_path(blog) %>
+    <%= link_to "Delete this blog", blog, method: :delete, 
+      data: { confirm: "Delete this blog?" } %>
+    <%= link_to "Unsubscribe", subscriptions_destroy_path(blog_id: blog.id) %>
+    </p>
+  <% end %>
+  </div>
+<% end %>
