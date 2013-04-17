@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def current_or_guest_user
     if current_user
       if session[:guest_user_id]
-        guest_user.destroy
+        #guest_user.destroy
         session[:guest_user_id] = nil
       end
       current_user
