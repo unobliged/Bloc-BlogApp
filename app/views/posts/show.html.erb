@@ -1,5 +1,5 @@
 <h2>Post Title: <%= @post.title %></h2>
-<p><%= @post.content %></p>
+<p><%= Sanitize.clean(@post.content, Sanitize::Config::RELAXED).html_safe %></p>
 <p><%= link_to "Back to blog", @post.blog %>
 <h3>Comments:</h3>
 <p><%= link_to "Create new comment", new_post_comment_path(@post) %>

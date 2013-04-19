@@ -9,6 +9,9 @@ gem 'bcrypt-ruby'
 gem 'will_paginate', '~> 3.0.0'
 gem 'devise'
 gem 'cancan'
+gem 'ckeditor'
+gem 'paperclip'
+gem 'sanitize'
 
 group :development, :test do
   gem 'rspec-rails'

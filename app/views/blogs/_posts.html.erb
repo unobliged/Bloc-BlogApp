@@ -1,7 +1,7 @@
 <% @blog.posts.each do |post| %>
   <div class="blog-post">
   <h2><%= link_to post.title, post %></h2>
-  <p><%= post.content %></p>
+  <p><%= Sanitize.clean(post.content, Sanitize::Config::RELAXED).html_safe %></p>
   <p><i>Last updated: <%= post.updated_at.localtime %></i></p>
   <% if current_user == @blog.user %>
     <p><%= link_to "Edit this post", edit_post_path(post) %>

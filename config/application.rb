@@ -70,5 +70,8 @@ module BlogApp
 
     # Makes it so that jquery.js will be served from your server when CDN is not available
     config.assets.precompile += ['jquery.js']
+
+    # Autoload ckeditor models folder
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end
