@@ -1,17 +1,14 @@
 <header>
   <nav>
     <h1>
-      <% if user_signed_in? %>
-        <%= link_to "Blogging App", current_user %></h1>
-      <% else %>  
-        <%= link_to "Blogging App", root_path %></h1>
-      <% end %>
+      <%= link_to "Blogging App", root_path %></h1>
     </h1>
     <ul>          
       <li><%= link_to "Blogs", blogs_path %></li>
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Contact", contact_path %></li>
       <% if user_signed_in? %>
+            <li><%= link_to "Account", current_user %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           <% else %>
             <li><%= link_to "Sign in", new_user_session_path %></li>

@@ -22,4 +22,6 @@ class Blog < ActiveRecord::Base
     subscriptions.find_by_user_id(user.id)
   end
 
+  scope :trending_by_subscribers, select("blogs.*, count(subscriptions.id) AS subscriptions_count").joins("left join subscriptions on subscriptions.blog_id = blogs.id").group("blogs.id").order("subscriptions_count DESC").limit(10)
+  scope :trending_by_comments, select("blogs.*, count(comments.id) AS comments_count").joins("left join comments on comments.blog_id = blogs.id").group("blogs.id").order("comments_count DESC").limit(10)
 end

@@ -30,8 +30,8 @@ a {
 
 
 header {
-  font-size: 16px;
   @include rb;
+  font-size: 14px;
   max-width: 750px;
   min-width: 350px;
   margin: 20px 20%;
@@ -45,6 +45,7 @@ header {
 
   h1 {
     @include ib-pm;
+    font-size: 1.6em;
   }
   
   ul {
@@ -135,10 +136,21 @@ header h1>a:hover {
   float: left;
   margin-right: 40px;
   background-color: #fff;
+  width: 350px;
+  height: 340px;
 
   h2 {
     padding-left: 20px;
-    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  
+  p {
+    padding: 5px 0;
   }
 }
 
