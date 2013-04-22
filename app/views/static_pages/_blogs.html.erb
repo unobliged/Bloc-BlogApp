@@ -1,3 +1,6 @@
 <% @blogs.each do |blog| %>
-  <p><%= blog.comments.count %> comments | <%= link_to blog.title, blog %> by <%= User.find(blog.user_id).username %></p>
+<div>
+  <%= image_tag blog.logo.url(:thumb) %>
+  <p><%= link_to truncate(blog.title, length: 14), blog %></p>
+</div>
 <% end %>

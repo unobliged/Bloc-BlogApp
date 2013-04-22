@@ -7,6 +7,9 @@ class Ability
       can :manage, Comment
     else 
       can :manage, [User, Blog, Post, Comment, Subscription]
+      can :access, :ckeditor
+      can [:read, :create, :destroy], Ckeditor::Picture
+      can [:read, :create, :destroy], Ckeditor::AttachmentFile
       # using case to leave room for future roles/resources
       case user.role
       when 'admin'

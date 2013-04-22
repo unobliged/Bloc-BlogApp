@@ -1,3 +1,3 @@
 <% @posts.each do |post| %>
-  <p><%= l post.updated_at, format: "%-m/%-d %H:%M" %> <%= link_to post.title, post %> by <%= User.find(post.user_id).username %></p>
+  <p><%= l post.updated_at, format: "%-m/%-d %H:%M" %> <%= link_to truncate(post.title, length: 17), post %> by <%= truncate(User.find(post.user_id).username, length: 13) %></p>
 <% end %>

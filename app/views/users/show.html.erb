@@ -1,6 +1,11 @@
-<h2>Account Details:</h2>
-<p>Username: <%= @user.username %></p>
+<h2>Username: <%= @user.username %></h2>
+<%= image_tag @user.avatar.url(:thumb) %>
 <% if current_user == @user %>
+  <p>Upload new avatar:</p>
+  <%= form_for @user do |f| %>
+    <%= f.file_field :avatar %>
+    <%= f.submit "Submit" %>
+  <% end %>
   <p>Email: <%= @user.email %></p>
   <p>Role: <%= @user.role ? @user.role : "None" %>
   <p><%= link_to "Edit Account", edit_user_registration_path %>
