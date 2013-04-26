@@ -19,7 +19,6 @@ class UsersController < ApplicationController
     else
       redirect_to @user, notice: "Error: Account not updated."
     end
-    
   end
 
 end

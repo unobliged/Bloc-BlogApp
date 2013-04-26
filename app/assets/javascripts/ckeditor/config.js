@@ -18,6 +18,21 @@ CKEDITOR.editorConfig = function( config )
         ['SpellChecker','Scayt']
       ];
 
+  config.toolbar = 'comments';
+
+  config.toolbar_comments =
+      [
+        ['Bold', 'Italic','Underline','Strike','Subscript','Superscript'],
+        ['Format','Font','FontSize'],
+        ['NumberedList','BulletedList'],
+        ['Outdent','Indent','Blockquote'],
+        ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl'],
+        ['UIColor','TextColor','BGColor'],
+        ['Link', 'Unlink','Anchor'],
+        ['HorizontalRule','SpecialChar'],
+        ['SpellChecker','Scayt']
+      ];
+
   // Rails CSRF token
   config.filebrowserParams = function(){
     var csrf_token = jQuery('meta[name=csrf-token]').attr('content'),

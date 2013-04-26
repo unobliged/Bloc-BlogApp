@@ -16,10 +16,12 @@ BlogApp::Application.routes.draw do
     member do
       get :subscribers
     end
+    get 'toggle_comments', on: :member
   end
 
   resources :posts do
     resources :comments
+    get 'toggle_comments', on: :member
   end
 
   resources :comments

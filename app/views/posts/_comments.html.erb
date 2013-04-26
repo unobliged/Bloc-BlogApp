@@ -1,7 +1,7 @@
 <% @post.comments.each do |comment| %>
   <div class="comment">
   <%= image_tag(User.find(comment.user_id).avatar(:thumb)) %>
-  <p><%= comment.content %></p>
+  <p><%= Sanitize.clean(comment.content, Sanitize::Config::RELAXED).html_safe %></p>
   <p>Comment by <%= link_to User.find(comment.user_id).username, User.find(comment.user_id) %></p>
   <p><i>Last updated: <%= comment.updated_at.localtime %></i></p>
   <% if current_or_guest_user == User.find(comment.user_id) || current_or_guest_user.role == "mod" %>

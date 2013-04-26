@@ -2,5 +2,9 @@
 <p><%= Sanitize.clean(@post.content, Sanitize::Config::RELAXED).html_safe %></p>
 <p><%= link_to "Back to blog", @post.blog %>
 <h3>Comments:</h3>
-<p><%= link_to "Create new comment", new_post_comment_path(@post) %>
+<% if @post.blog.comments_allowed %>
+  <% if @post.comments_allowed %>
+    <p><%= link_to "Create new comment", new_post_comment_path(@post) %>
+  <% end %>
+<% end %>
 <%= render 'posts/comments' %>
