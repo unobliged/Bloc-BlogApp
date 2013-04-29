@@ -14,7 +14,7 @@
 #
 
 class Blog < ActiveRecord::Base
-  attr_accessible :title, :logo
+  attr_accessible :title, :logo, :comments_allowed
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/default_logo.jpg"
 
   has_many :posts

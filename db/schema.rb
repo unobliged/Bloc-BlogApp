@@ -11,17 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421235110) do
+ActiveRecord::Schema.define(:version => 20130429013413) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "user_id"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.boolean  "comments_allowed",  :default => true
   end
 
   add_index "blogs", ["title"], :name => "index_blogs_on_title", :unique => true

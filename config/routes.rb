@@ -16,6 +16,7 @@ BlogApp::Application.routes.draw do
     member do
       get :subscribers
     end
+    get 'toggle_comments', on: :member
   end
 
   resources :posts do
@@ -26,6 +27,7 @@ BlogApp::Application.routes.draw do
   resources :subscriptions, :only => [:create, :destroy]
   match '/subscriptions/create', to: 'subscriptions#create'
   match '/subscriptions/destroy', to: 'subscriptions#destroy'
+#  match '/blogs/comments_toggle', to: 'blogs#comments_toggle'
 
   root :to => 'static_pages#home'
   match '/about',   to: 'static_pages#about'

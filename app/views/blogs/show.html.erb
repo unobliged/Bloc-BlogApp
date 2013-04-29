@@ -10,6 +10,11 @@
 <% if current_user == @blog.user %>
   <p><%= link_to "Edit Blog", edit_blog_path(@blog) %> 
   <%= link_to "Delete Blog", @blog, method: :delete, data: { confirm: "Delete this blog?" } %>
+  <% if @blog.comments_allowed %>
+    <%= link_to "Disable Comments", toggle_comments_blog_path(@blog) %>
+  <% else %>
+    <%= link_to "Enable Comments", toggle_comments_blog_path(@blog) %>
+  <% end %> 
   </p>
   <p><%= link_to "Create new post", new_blog_post_path(@blog) %>
 <% end %>
