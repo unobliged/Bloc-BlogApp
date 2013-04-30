@@ -43,6 +43,6 @@ class BlogsController < ApplicationController
   def toggle_comments
     @blog = current_user.blogs.find(params[:id])
     @blog.toggle!(:comments_allowed)
-    redirect_to current_user
+    redirect_to (:back)
   end
 end

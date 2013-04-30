@@ -42,4 +42,10 @@ class PostsController < ApplicationController
     @post.destroy 
     redirect_to @post.blog, notice: "Post successfully destroyed."
   end
+
+  def toggle_comments
+    @post = current_user.posts.find(params[:id])
+    @post.toggle!(:comments_allowed)
+    redirect_to (:back)
+  end
 end

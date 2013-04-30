@@ -21,13 +21,13 @@ BlogApp::Application.routes.draw do
 
   resources :posts do
     resources :comments
+    get 'toggle_comments', on: :member
   end
 
   resources :comments
   resources :subscriptions, :only => [:create, :destroy]
   match '/subscriptions/create', to: 'subscriptions#create'
   match '/subscriptions/destroy', to: 'subscriptions#destroy'
-#  match '/blogs/comments_toggle', to: 'blogs#comments_toggle'
 
   root :to => 'static_pages#home'
   match '/about',   to: 'static_pages#about'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429013413) do
+ActiveRecord::Schema.define(:version => 20130430024944) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
@@ -57,8 +57,9 @@ ActiveRecord::Schema.define(:version => 20130429013413) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "blog_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "comments_allowed", :default => true
   end
 
   create_table "subscriptions", :force => true do |t|

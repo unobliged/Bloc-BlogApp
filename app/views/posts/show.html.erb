@@ -3,6 +3,8 @@
 <p><%= link_to "Back to blog", @post.blog %>
 <h3>Comments:</h3>
 <% if @post.blog.comments_allowed %>
-  <p><%= link_to "Create new comment", new_post_comment_path(@post) %>
+  <% if @post.comments_allowed %>
+    <p><%= link_to "Create new comment", new_post_comment_path(@post) %>
+  <% end %>
 <% end %>
 <%= render 'posts/comments' %>
