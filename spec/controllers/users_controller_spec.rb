@@ -1,54 +1,28 @@
 require 'spec_helper'
 
 describe UsersController do
+  before :each do
+    @user = FactoryGirl.create(:user, role: "admin")
+    sign_in @user
+  end
+  
+  describe "routes" do
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
+    it "should work" do
+      get :index
+      assigns(:users).should eq([@user])
+      response.should render_template :index
+  
+      get :show, id: @user
+      assigns(:user).should eq(@user)
+      response.should render_template :show
+  
+      get :edit, id: @user
+      response.should redirect_to(edit_user_registration_path)
+  
+      put :update, id: @user, user: {username: "spec"}
+      @user.reload
+      @user.username.should eq("spec")
     end
   end
-
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
-  end
-
 end

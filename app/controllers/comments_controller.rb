@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if current_or_guest_user.role == "mod"
+    if current_or_guest_user.role == "mod" || current_or_guest_user.role == "admin"
       @comment = Comment.find(params[:id])
     else
       @comment = current_or_guest_user.comments.find(params[:id])

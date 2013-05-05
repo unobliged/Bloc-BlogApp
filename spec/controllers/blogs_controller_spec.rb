@@ -1,54 +1,42 @@
 require 'spec_helper'
 
 describe BlogsController do
+  before :each do
+    @user = FactoryGirl.create(:user, role: "admin")
+    sign_in @user
+  end
+  
+  describe "routes" do
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
+    it "should work" do
+      @blog = FactoryGirl.create(:blog, user: @user)
+  
+      get :index
+      assigns(:blogs).should eq([@blog])
+      response.should render_template :index
+  
+      get :show, id: @blog
+      assigns(:blog).should eq(@blog)
+      response.should render_template :show
+  
+      get :new
+      response.should render_template :new
+      
+      get :edit, id: @blog
+      response.should render_template :edit
+  
+      expect{
+        post:create  
+      }.to change(Blog, :count).by(1)
+  
+      put :update, id: @blog, blog: {title: "spec"}
+      @blog.reload
+      @blog.title.should eq("spec")
+
+      expect{
+        delete :destroy, id: @blog
+      }.to change(Blog, :count).by(-1)
+      response.should redirect_to blogs_path
     end
   end
-
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
-  end
-
 end

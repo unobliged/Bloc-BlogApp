@@ -1,19 +1,23 @@
 require 'spec_helper'
 
 describe SubscriptionsController do
+  before :each do
+    @user = FactoryGirl.create(:user, role: "admin")
+    sign_in @user
+  end
+  
+  describe "routes" do
 
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
+    it "should work" do
+      @blog = FactoryGirl.create(:blog, user: @user)
+  
+      expect{
+        post :create, blog_id: @blog
+      }.to change(Subscription, :count).by(1)
+  
+      expect{
+        delete :destroy, blog_id: @blog
+      }.to change(Subscription, :count).by(-1)
     end
   end
-
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
-  end
-
 end

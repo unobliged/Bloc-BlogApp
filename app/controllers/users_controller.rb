@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    redirect_to edit_user_registration_path
   end
 
   def update

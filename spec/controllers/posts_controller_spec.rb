@@ -29,10 +29,16 @@ describe PostsController do
       expect{
         post :create, blog_id: @blog
       }.to change(Post, :count).by(1)
+      response.should redirect_to @post.blog
   
       put :update, id: @post, post: {content: "spec"}
       @post.reload
       @post.content.should eq("spec")
+
+      expect{
+        delete :destroy, id: @post 
+      }.to change(Post, :count).by(-1)
+      response.should redirect_to @post.blog
     end
   end
 end
