@@ -24,10 +24,11 @@
 #
 
 require 'spec_helper'
+require "cancan/matchers"
 
 describe User do
   before :each do
-    @user = FactoryGirl.create(:user, username: "test")
+    @user = FactoryGirl.create(:user, username: "test", role: "admin")
   end
 
   it "should not allow duplicate usernames" do
@@ -38,10 +39,25 @@ describe User do
     @user.should respond_to :avatar
   end  
 
-  it "can subscrible and unsubscribe from a blog" do
+  it "can subscribe and unsubscribe from a blog" do
     @blog = FactoryGirl.build(:blog)
     @user.subscribe!(@blog)
     @user.subscriptions.should_not be_nil
     @user.unsubscribe!(@blog)
+  end
+
+  it "has comment access as guest" do
+    @guest = FactoryGirl.build(:user)
+    @ability = Ability.new(@guest)
+    @ability.should be_able_to(:manage, Comment.new)
+  end
+
+  it "can manage all as admin" do
+    @ability = Ability.new(@user)
+    @ability.should be_able_to(:manage, User.new)
+    @ability.should be_able_to(:manage, Blog.new)
+    @ability.should be_able_to(:manage, Post.new)
+    @ability.should be_able_to(:manage, Comment.new)
+    @ability.should be_able_to(:manage, Subscription.new)
   end
 end
