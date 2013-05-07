@@ -6,8 +6,7 @@
   <p><i>Last updated: <%= comment.updated_at.localtime %></i></p>
   <% if current_or_guest_user == User.find(comment.user_id) || current_or_guest_user.role == "mod" %>
     <p><%= link_to "Edit this comment", edit_comment_path(comment) %>
-      <%= link_to "Delete this comment", comment, method: :delete, 
-        data: { confirm: "Delete this comment?" } %>
+      <%= link_to "Delete this comment", comment, method: :delete, remote: true, data: { confirm: "Delete this comment?" } %>
     </p>
   <% end %>
   </div>

@@ -44,7 +44,9 @@ class CommentsController < ApplicationController
     else
       @comment = current_or_guest_user.comments.find(params[:id])
     end
+    @post = @comment.post
     @comment.destroy  
-    redirect_to @comment.post, notice: "Comment successfully destroyed."
+    #respond_with(@post)
+    #redirect_to @comment.post, notice: "Comment successfully destroyed."
   end
 end
