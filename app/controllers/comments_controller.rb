@@ -46,7 +46,6 @@ class CommentsController < ApplicationController
     end
     @post = @comment.post
     @comment.destroy  
-    #respond_with(@post)
     #redirect_to @comment.post, notice: "Comment successfully destroyed."
   end
 end
