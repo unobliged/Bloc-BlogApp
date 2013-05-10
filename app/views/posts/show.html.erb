@@ -5,7 +5,7 @@
 <%= button_tag "Toggle Comments" %>
 <% if @post.blog.comments_allowed %>
   <% if @post.comments_allowed %>
-    <p><%= link_to "Create new comment", new_post_comment_path(@post) %>
+    <%= render 'posts/comment_form', post: @post %>
   <% end %>
 <% end %>
 <%= render 'posts/comments' %>

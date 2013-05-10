@@ -1,0 +1,2 @@
+$('.blog-post').remove();
+$("#center-div").append("<%= escape_javascript(render 'blogs/posts', blog: @blog) %>");

@@ -14,14 +14,10 @@ class PostsController < ApplicationController
   end 
 
   def create
-    @blog = current_user.blogs.find(params[:blog_id])
+    @blog = current_user.blogs.find(params[:post][:blog_id])
     @post = @blog.posts.new(params[:post])
     @post.user_id = @blog.user.id
-    if @post.save
-      redirect_to @post.blog, notice: "Post successfully created."
-    else
-      render 'new'
-    end
+    @post.save
   end
 
   def edit

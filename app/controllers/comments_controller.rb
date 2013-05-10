@@ -14,15 +14,11 @@ class CommentsController < ApplicationController
   end 
 
   def create
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:comment][:post_id])
     @comment = @post.comments.new(params[:comment])
     @comment.blog_id = @post.blog_id
     @comment.user_id = current_or_guest_user.id
-    if @comment.save
-      redirect_to @comment.post, notice: "Comment successfully created."
-    else
-      render 'new'
-    end
+    @comment.save
   end
 
   def edit
