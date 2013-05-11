@@ -184,6 +184,10 @@ div.comment {
   margin: 0 5px 5px 0;
 }
 
+#new_post {
+  display: none;
+}
+
 #feeds {
   @include rb;
   padding: 10px;
