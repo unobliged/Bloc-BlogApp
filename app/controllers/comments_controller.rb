@@ -13,6 +13,13 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new
   end 
 
+  def new_comment_form
+    @post = Post.find(params[:post_id])
+    respond_to do |format|
+      format.js
+    end   
+  end 
+
   def create
     @post = Post.find(params[:comment][:post_id])
     @comment = @post.comments.new(params[:comment])
@@ -25,13 +32,17 @@ class CommentsController < ApplicationController
     @comment = current_or_guest_user.comments.find(params[:id])
   end
 
+  def edit_comment_form
+    @comment = Comment.find(params[:comment_id]) 
+    respond_to do |format|
+      format.js
+    end   
+  end 
+
   def update
     @comment = current_or_guest_user.comments.find(params[:id])
-    if @comment.update_attributes(params[:comment])
-      redirect_to @comment, notice: "Comment successfully updated."
-    else
-      render 'edit'
-    end
+    @post = @comment.post
+    @comment.update_attributes(params[:comment])
   end
 
   def destroy

@@ -1,0 +1,2 @@
+$('#new_comment').remove();
+$("#center-div").append("<%= escape_javascript(render 'comments/edit_comment_form', comment: @comment) %>");

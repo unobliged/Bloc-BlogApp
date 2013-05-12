@@ -1,6 +1,5 @@
-<%= form_for(@comment, as: :comment, url: comments_path, remote: true) do |f| %>
+<%= form_for(@comment, as: :comment, url: {action: :update, id: @comment}, remote: true) do |f| %>
   <label>Enter Comment Content:</label>
-  <%= f.hidden_field :post_id, value: @post.id %>
   <%= f.cktext_area :content, ckeditor: { toolbar: "comments" } %>
   <%= submit_tag "Submit" %>  
 <% end %>
