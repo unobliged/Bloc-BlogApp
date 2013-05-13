@@ -188,6 +188,26 @@ div.comment {
   display: none;
 }
 
+#new-comment {
+  /* TODO: style this better as a button for firefox */
+  padding: 5px;
+  margin: 5px 0;
+  background-color: buttonface;
+  border: 2px outset buttonface;
+  color: buttontext;
+  text-decoration: none;
+  line-height: normal;
+  text-align: center;
+  text-shadow: none;
+  font: -webkit-small-control;
+  font: -moz-button;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -moz-border: 1px dotted transparent;
+}
+
 #feeds {
   @include rb;
   padding: 10px;

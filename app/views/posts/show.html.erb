@@ -5,8 +5,7 @@
 <%= button_tag "Toggle Comments", id: "toggle-comments" %>
 <% if @post.blog.comments_allowed %>
   <% if @post.comments_allowed %>
-    <%= button_to "New Comment", new_comment_form_path(post_id: @post), id: "new-comment", remote: true %>
-    <%# render 'posts/comment_form', post: @post %>
+    <%= link_to "New Comment", new_comment_form_path(post_id: @post), id: "new-comment", remote: true %>
   <% end %>
 <% end %>
 <%= render 'posts/comments' %>
