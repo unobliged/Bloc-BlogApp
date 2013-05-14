@@ -13,11 +13,11 @@ gem 'ckeditor'
 gem 'paperclip'
 gem 'sanitize'
 gem 'factory_girl_rails'
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'annotate'
-  gem 'faker'
 end
 
 group :assets do
