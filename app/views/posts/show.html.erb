@@ -2,10 +2,10 @@
 <p><%= Sanitize.clean(@post.content, Sanitize::Config::RELAXED).html_safe %></p>
 <p><%= link_to "Back to blog", @post.blog %>
 <h3>Comments:</h3>
-<%= button_tag "Toggle Comments" %>
+<%= button_tag "Toggle Comments", id: "toggle-comments" %>
 <% if @post.blog.comments_allowed %>
   <% if @post.comments_allowed %>
-    <p><%= link_to "Create new comment", new_post_comment_path(@post) %>
+    <%= link_to "New Comment", new_comment_form_path(post_id: @post), id: "new-comment", remote: true %>
   <% end %>
 <% end %>
 <%= render 'posts/comments' %>

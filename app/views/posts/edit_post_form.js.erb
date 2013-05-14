@@ -1,0 +1,3 @@
+$('#new_post').remove();
+$('#edit_post').remove();
+$('#new-post').after("<%= escape_javascript(render 'posts/edit_post_form', post: @post) %>");

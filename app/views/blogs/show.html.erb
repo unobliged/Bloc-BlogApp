@@ -16,6 +16,6 @@
     <%= link_to "Enable Comments", toggle_comments_blog_path(@blog) %>
   <% end %> 
   </p>
-  <p><%= link_to "Create new post", new_blog_post_path(@blog) %>
+  <%= link_to "New Post", new_post_form_path(blog_id: @blog), id: "new-post", remote: true %>
 <% end %>
 <%= render 'blogs/posts' %>

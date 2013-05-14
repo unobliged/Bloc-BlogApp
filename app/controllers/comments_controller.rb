@@ -13,29 +13,36 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new
   end 
 
-  def create
+  def new_comment_form
     @post = Post.find(params[:post_id])
+    respond_to do |format|
+      format.js
+    end   
+  end 
+
+  def create
+    @post = Post.find(params[:comment][:post_id])
     @comment = @post.comments.new(params[:comment])
     @comment.blog_id = @post.blog_id
     @comment.user_id = current_or_guest_user.id
-    if @comment.save
-      redirect_to @comment.post, notice: "Comment successfully created."
-    else
-      render 'new'
-    end
+    @comment.save
   end
 
   def edit
     @comment = current_or_guest_user.comments.find(params[:id])
   end
 
+  def edit_comment_form
+    @comment = Comment.find(params[:comment_id]) 
+    respond_to do |format|
+      format.js
+    end   
+  end 
+
   def update
     @comment = current_or_guest_user.comments.find(params[:id])
-    if @comment.update_attributes(params[:comment])
-      redirect_to @comment, notice: "Comment successfully updated."
-    else
-      render 'edit'
-    end
+    @post = @comment.post
+    @comment.update_attributes(params[:comment])
   end
 
   def destroy
@@ -44,7 +51,8 @@ class CommentsController < ApplicationController
     else
       @comment = current_or_guest_user.comments.find(params[:id])
     end
+    @post = @comment.post
     @comment.destroy  
-    redirect_to @comment.post, notice: "Comment successfully destroyed."
+    #redirect_to @comment.post, notice: "Comment successfully destroyed."
   end
 end

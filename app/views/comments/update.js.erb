@@ -1,0 +1,3 @@
+$('.comment').remove();
+$('#edit_comment').remove();
+$("#center-div").append("<%= escape_javascript(render 'posts/comments', post: @post) %>");
