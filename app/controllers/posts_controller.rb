@@ -13,20 +13,30 @@ class PostsController < ApplicationController
     @post = @blog.posts.new
   end 
 
+  def new_post_form
+    @blog = Blog.find(params[:blog_id])
+    respond_to do |format|
+      format.js
+    end   
+  end 
+
   def create
-    @blog = current_user.blogs.find(params[:blog_id])
+    @blog = current_user.blogs.find(params[:post][:blog_id])
     @post = @blog.posts.new(params[:post])
     @post.user_id = @blog.user.id
-    if @post.save
-      redirect_to @post.blog, notice: "Post successfully created."
-    else
-      render 'new'
-    end
+    @post.save
   end
 
   def edit
     @post = current_user.posts.find(params[:id])
   end
+
+  def edit_post_form
+    @post = Post.find(params[:post_id]) 
+    respond_to do |format|
+      format.js
+    end   
+  end 
 
   def update
     @post = current_user.posts.find(params[:id])
@@ -39,8 +49,9 @@ class PostsController < ApplicationController
 
   def destroy
     @post = current_user.posts.find(params[:id])
+    @blog = @post.blog
     @post.destroy 
-    redirect_to @post.blog, notice: "Post successfully destroyed."
+    #redirect_to @post.blog, notice: "Post successfully destroyed."
   end
 
   def toggle_comments

@@ -1,0 +1,8 @@
+<%= form_for(@post, as: :post, url: posts_path, remote: true) do |f| %>
+  <label>Enter New Post Title:</label>
+  <%= f.hidden_field :blog_id, value: @blog.id %>
+  <%= f.text_field :title %>
+  <label>Enter New Post Content:</label>
+  <%= f.cktext_area :content %>
+  <%= submit_tag "Submit", disable_with: "Submitting..." %>  
+<% end %>

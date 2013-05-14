@@ -1,0 +1,3 @@
+$('#edit_comment').remove();
+$('#new_comment').remove();
+$('#new-comment').after("<%= escape_javascript(render 'comments/new_comment_form', post: @post) %>");

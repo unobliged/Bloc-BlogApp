@@ -33,4 +33,8 @@ BlogApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
 
+  match 'edit_comment_form(/:comment_id)', as: :edit_comment_form, to: 'comments#edit_comment_form' 
+  match 'new_comment_form', as: :new_comment_form, to: 'comments#new_comment_form' 
+  match 'edit_post_form(/:post_id)', as: :edit_post_form, to: 'posts#edit_post_form' 
+  match 'new_post_form', as: :new_post_form, to: 'posts#new_post_form' 
 end

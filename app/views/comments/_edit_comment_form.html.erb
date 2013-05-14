@@ -1,0 +1,5 @@
+<%= form_for(@comment, as: :comment, url: {action: :update, id: @comment}, remote: true) do |f| %>
+  <label>Edit Comment:</label>
+  <%= f.cktext_area :content, ckeditor: { toolbar: "comments" } %>
+  <%= submit_tag "Submit" %>  
+<% end %>

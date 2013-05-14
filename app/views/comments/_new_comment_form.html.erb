@@ -1,0 +1,6 @@
+<%= form_for(@comment, as: :comment, url: comments_path, remote: true) do |f| %>
+  <label>Enter New Comment:</label>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.cktext_area :content, ckeditor: { toolbar: "comments" } %>
+  <%= submit_tag "Submit", disable_with: "Submitting..." %>  
+<% end %>
