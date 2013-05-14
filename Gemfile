@@ -12,12 +12,12 @@ gem 'cancan'
 gem 'ckeditor'
 gem 'paperclip'
 gem 'sanitize'
+gem 'factory_girl_rails'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'annotate'
   gem 'faker'
-  gem 'factory_girl_rails'
 end
 
 group :assets do
