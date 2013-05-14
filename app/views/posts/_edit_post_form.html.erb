@@ -1,0 +1,7 @@
+<%= form_for(@post, as: :post, url: {action: :update, id: @post}, remote: true) do |f| %>
+  <label>Edit Post Title:</label>
+  <%= f.text_field :title %>
+  <label>Edit Post Content:</label>
+  <%= f.cktext_area :content %>
+  <%= submit_tag "Submit", disable_with: "Submitting..." %>  
+<% end %>

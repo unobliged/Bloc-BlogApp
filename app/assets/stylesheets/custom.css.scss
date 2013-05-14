@@ -148,7 +148,10 @@ header h1>a:hover {
 
   div {
     display: inline-block;
+    min-width: 100px;
+    text-align: center;
   }
+
   h2 {
     padding-left: 20px;
   }
@@ -184,11 +187,7 @@ div.comment {
   margin: 0 5px 5px 0;
 }
 
-#new_post {
-  display: none;
-}
-
-#new-comment {
+#new-post, #new-comment {
   /* TODO: style this better as a button for firefox */
   padding: 5px;
   margin: 5px 0;

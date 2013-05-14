@@ -13,6 +13,13 @@ class PostsController < ApplicationController
     @post = @blog.posts.new
   end 
 
+  def new_post_form
+    @blog = Blog.find(params[:blog_id])
+    respond_to do |format|
+      format.js
+    end   
+  end 
+
   def create
     @blog = current_user.blogs.find(params[:post][:blog_id])
     @post = @blog.posts.new(params[:post])
@@ -23,6 +30,13 @@ class PostsController < ApplicationController
   def edit
     @post = current_user.posts.find(params[:id])
   end
+
+  def edit_post_form
+    @post = Post.find(params[:post_id]) 
+    respond_to do |format|
+      format.js
+    end   
+  end 
 
   def update
     @post = current_user.posts.find(params[:id])
